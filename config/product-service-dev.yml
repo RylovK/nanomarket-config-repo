@@ -24,7 +24,7 @@ spring:
 minio:
   access-key: minioaccesskey
   secret-key: miniosecretkey
-  endpoint: http://localhost:9000
+  endpoint: http://minio:9000
   region: us-east-1
 
 
