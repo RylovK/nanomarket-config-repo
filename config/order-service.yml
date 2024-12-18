@@ -42,3 +42,17 @@ resilience4j.circuitbreaker:
 #        - java.io.IOException
 #        - java.util.concurrent.TimeoutException
 #        - org.springframework.web.client.ResourceAccessException
+
+#resilience4j:
+#  circuitbreaker:
+#    configs:
+#      default:
+#        registerHealthIndicator: true
+#        slidingWindowSize: 100
+#        failureRateThreshold: 50
+#        waitDurationInOpenState: 5s
+#    instances:
+#      externalService:
+#        baseConfig: default
+#        slidingWindowSize: 50
+#        failureRateThreshold: 60
