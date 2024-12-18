@@ -1,0 +1,31 @@
+server:
+  port: 8083
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres:5432/nanomarket_db
+    username: root
+    password: root
+  data:
+    jdbc:
+      dialect: postgresql
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+    hibernate:
+      ddl-auto: validate
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://eureka:8070/eureka
+
+management:
+  endpoint:
+    env:
+      post:
+        enabled: true
