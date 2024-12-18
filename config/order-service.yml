@@ -43,6 +43,8 @@ resilience4j.circuitbreaker:
 #        - java.util.concurrent.TimeoutException
 #        - org.springframework.web.client.ResourceAccessException
 
+
+
 #resilience4j:
 #  circuitbreaker:
 #    configs:
