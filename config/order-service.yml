@@ -29,9 +29,10 @@ management:
     env:
       post:
         enabled: true
+
 resilience4j.circuitbreaker:
   instances:
-    orderServiceUpdate:
+    checkStockAndReserveProducts:
       registerHealthIndicator: true
       ringBufferSizeInClosedState: 5
       ringBufferSizeInHalfOpenState: 3
