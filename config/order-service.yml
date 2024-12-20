@@ -30,32 +30,54 @@ management:
       post:
         enabled: true
 
-resilience4j.circuitbreaker:
-  instances:
-    checkStockAndReserveProducts:
-      registerHealthIndicator: true
-      ringBufferSizeInClosedState: 5
-      ringBufferSizeInHalfOpenState: 3
-      waitDurationInOpenState: 10s
-      failureRateThreshold: 50
-#      recordExceptions:
-#        - org.springframework.web.client.HttpServerErrorException
-#        - java.io.IOException
-#        - java.util.concurrent.TimeoutException
-#        - org.springframework.web.client.ResourceAccessException
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 100
+        permittedNumberOfCallsInHalfOpenState: 10
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+      instances:
+        checkStockAndReserveProducts:
+          baseConfig: default
+          failureRateThreshold: 30
+          recordExceptions:
+            - org.springframework.web.client.HttpServerErrorException
+            - java.io.IOException
+            - java.util.concurrent.TimeoutException
+            - org.springframework.web.client.ResourceAccessException
+
+  bulkhead:
+    configs:
+      default:
+        type: ThreadPool
+        maxWaitDuration: 500ms
+        maxConcurrentCalls: 25
+        queueCapacity: 100
+        keepAliveDuration: 20ms
+    instances:
+      checkStockAndReserveProducts:
+        maxWaitDuration: 250ms
+        maxConcurrentCalls: 10
+
+  retry:
+    configs:
+      default:
+        maxRetryAttempts: 5
+        waitDuration: 5s
+        retryExceptions:
+          - java.util.concurrent.TimeoutException
+          - java.net.SocketTimeoutException
 
 
 
-#resilience4j:
-#  circuitbreaker:
-#    configs:
-#      default:
-#        registerHealthIndicator: true
-#        slidingWindowSize: 100
-#        failureRateThreshold: 50
-#        waitDurationInOpenState: 5s
-#    instances:
-#      externalService:
-#        baseConfig: default
-#        slidingWindowSize: 50
-#        failureRateThreshold: 60
+#
+#resilience4j.ratelimiter:
+#instances:
+#  licenseService:
+#  timeoutDuration: 1000ms
+#  limitRefreshPeriod: 5000
+#  limitForPeriod: 5
