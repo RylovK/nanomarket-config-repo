@@ -12,18 +12,13 @@ spring:
   jpa:
     properties:
       hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
         show_sql: true
     hibernate:
       ddl-auto: validate
 
-#  minio.access-key=minioaccesskey
-#  minio.secret-key=miniosecretkey
-#  minio.endpoint=http://localhost:9000
-#  minio.region=us-east-1
 minio:
-  access-key: minioaccesskey
-  secret-key: miniosecretkey
+  MINIO_ROOT_USER: minioaccesskey
+  MINIO_ROOT_PASSWORD: miniosecretkey
   endpoint: http://minio:9000
   region: us-east-1
 
