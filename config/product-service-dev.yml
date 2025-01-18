@@ -15,11 +15,15 @@ spring:
         show_sql: true
     hibernate:
       ddl-auto: validate
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
 
 minio:
   MINIO_ROOT_USER: minioaccesskey
   MINIO_ROOT_PASSWORD: miniosecretkey
-#  endpoint: https://play.min.io:9000
   endpoint: http://minio:9000
   region: us-east-1
 
