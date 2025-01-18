@@ -49,6 +49,12 @@ resilience4j:
             - java.io.IOException
             - java.util.concurrent.TimeoutException
             - org.springframework.web.client.ResourceAccessException
+        getProductAvailability:
+          baseConfig: default
+          slidingWindowSize: 25
+        reserveProducts:
+          baseConfig: default
+          slidingWindowSize: 25
 
   bulkhead:
     configs:
@@ -60,8 +66,17 @@ resilience4j:
         keepAliveDuration: 20ms
     instances:
       checkStockAndReserveProducts:
+        baseConfig: default
+        maxConcurrentCalls: 15
+      getProductAvailability:
+        baseConfig: default
         maxWaitDuration: 250ms
         maxConcurrentCalls: 10
+      reserveProducts:
+        baseConfig: default
+        maxWaitDuration: 250ms
+        maxConcurrentCalls: 10
+
 
   retry:
     configs:
