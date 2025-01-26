@@ -18,3 +18,13 @@ spring:
   main:
     web-application-type: reactive
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,gateway"
+  endpoint:
+    gateway:
+      enabled: true
+
+
