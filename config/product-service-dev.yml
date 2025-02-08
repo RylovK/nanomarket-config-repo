@@ -9,6 +9,12 @@ spring:
   data:
     jdbc:
       dialect: postgresql
+    redis:
+      database: 1
+      host: redis_container
+      port: 6379
+      password: redis_password
+      timeout: 60000
   jpa:
     properties:
       hibernate:
