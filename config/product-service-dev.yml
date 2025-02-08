@@ -21,6 +21,8 @@ spring:
         show_sql: true
     hibernate:
       ddl-auto: validate
+  cache:
+    type: redis
 springdoc:
   api-docs:
     enabled: true
