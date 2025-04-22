@@ -17,6 +17,7 @@ spring:
       ddl-auto: validate
 
   kafka:
+    bootstrap-servers: kafka-1:9092,kafka-2:9094,kafka-3:9096
     producer:
       bootstrap-servers: kafka-1:9092,kafka-2:9094,kafka-3:9096
     consumer:
