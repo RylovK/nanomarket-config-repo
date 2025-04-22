@@ -24,12 +24,10 @@ spring:
       group-id: order-service-group
       auto-offset-reset: earliest
     topic:
-      order:
-        created: order-created-events-topic
-        cancelled: order-cancelled-events-topic
-      product:
-        reserved: product-reserved-events-topic
-        outOfStock: product-out-of-stock-events-topic
+      orderCreated: order-created-events-topic
+      orderCancelled: order-cancelled-events-topic
+      productReserved: product-reserved-events-topic
+      productOutOfStock: product-out-of-stock-events-topic
 
 eureka:
   instance:

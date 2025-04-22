@@ -31,15 +31,13 @@ spring:
       bootstrap-servers: kafka-1:9092,kafka-2:9094,kafka-3:9096
     consumer:
       bootstrap-servers: kafka-1:9092,kafka-2:9094,kafka-3:9096
-      group-id: product-service-group
+      group-id: order-service-group
       auto-offset-reset: earliest
     topic:
-      order:
-        created: order-created-events-topic
-        cancelled: order-cancelled-events-topic
-      product:
-        reserved: product-reserved-events-topic
-        out-of-stock: product-out-of-stock-events-topic
+      orderCreated: order-created-events-topic
+      orderCancelled: order-cancelled-events-topic
+      productReserved: product-reserved-events-topic
+      productOutOfStock: product-out-of-stock-events-topic
 
 springdoc:
   api-docs:
