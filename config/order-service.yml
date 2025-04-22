@@ -29,7 +29,7 @@ spring:
         cancelled: order-cancelled-events-topic
       product:
         reserved: product-reserved-events-topic
-        out-of-stock: product-out-of-stock-events-topic
+        outOfStock: product-out-of-stock-events-topic
 
 eureka:
   instance:
