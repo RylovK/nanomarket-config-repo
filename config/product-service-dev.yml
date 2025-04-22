@@ -25,6 +25,20 @@ spring:
     change-log: classpath:/liquibase/changelog-master.yaml
   cache:
     type: redis
+
+  kafka:
+    producer:
+      bootstrap-servers: kafka-1:9092,kafka-2:9094,kafka-3:9096
+    consumer:
+      bootstrap-servers: kafka-1:9092,kafka-2:9094,kafka-3:9096
+      group-id: product-service-group
+      auto-offset-reset: earliest
+    topic:
+      order-created: order-created-events-topic
+      order-cancelled: order-cancelled-events-topic
+      product-reserved: product-reserved-events-topic
+      product-out-of-stock: product-out-of-stock-events-topic
+
 springdoc:
   api-docs:
     enabled: true
