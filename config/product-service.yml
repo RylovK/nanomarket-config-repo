@@ -43,7 +43,6 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       group-id: order-service-group
-      auto-offset-reset: earliest
     topic:
       orderCreated: order-created-events-topic
       orderCancelled: order-cancelled-events-topic
