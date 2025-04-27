@@ -24,10 +24,10 @@ spring:
       group-id: order-service-group
 
     topic:
-      orderCreated: order-created-events-topic
-      orderCancelled: order-cancelled-events-topic
-      productReserved: product-reserved-events-topic
-      productOutOfStock: product-out-of-stock-events-topic
+      orderEvents: order-events-topic
+      orderCommands: order-commands-topic
+      productEvents: product-events-topic
+      productCommands: product-commands-topic
 
 
   datasource:
