@@ -15,7 +15,9 @@ spring:
       bootstrap-servers: kafka-1:9092,kafka-2:9094,kafka-3:9096
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      group-id: order-service-group
+      group-id: saga-service-group
+      properties:
+        spring.json.trusted.packages: "my.project.events"
     topic:
       orderEvents: order-events-topic
       orderCommands: order-commands-topic
